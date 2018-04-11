@@ -1,9 +1,23 @@
-import { USER_LOGGED_IN } from '../types';
+import { UserActions } from '../actions';
+import Immutable from 'immutable';
 
-export default function user( state = {}, action = {} ) {
+const { Map, fromJS, List } = Immutable;
+
+const initialState = Map({
+  currentUser: null,
+  isLoading: false,
+});
+
+export default function (state = initialState, action) {
+
     switch(action.type){
-        case 'USER_LOGGED_IN':
-            return action.user;
+        case UserActions.USER_LOG_IN:
+        return state.set('isLoading', true);
+
+        case UserActions.USER_LOGGED_IN:
+        return state.set('currentUser', action.loggedinUserData)
+        .set('isLoading', false);
+
         default: return state;
     }
 }

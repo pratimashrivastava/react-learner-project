@@ -1,12 +1,53 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
-import HomePage from './components/pages/HomePage';
-import LoginPage from './components/pages/LoginPage'
+import { Provider } from 'react-redux';
+import configureStore from './store';
+// import Splash from './components/common/splash';
+// import { Analytics } from './components/common';
+import Routes from './routes';
 
-const App = () => 
-	<div className="ui container"> 
-		<Route path="/" exact component={HomePage}/>
-		<Route path="/login" exact component={LoginPage}/>
-	</div>
+export default class FriendO extends React.Component {
 
-export default App;
+  constructor(props) {
+    super(props);
+    this.state = {
+      store: null
+    }
+  }
+
+  componentWillMount() {
+    // console.disableYellowBox = true;
+    // if (__DEV__) {
+    //   global.XMLHttpRequest = global.originalXMLHttpRequest ?
+    //     global.originalXMLHttpRequest :
+    //     global.XMLHttpRequest;
+    //   global.FormData = global.originalFormData ?
+    //     global.originalFormData :
+    //     global.FormData;
+    // }
+		// Analytics.setTrackerId(GLOBALS.GA_TRACKER_ID);
+		
+		// localStorage.getItem('applicationState', (error, appState) => {
+		// 	if(!error) {
+		// 		this.setState({ store: configureStore(JSON.parse(appState)) });
+    //   }
+    // });
+		this.setState({ store: configureStore() });
+  }
+
+  render () {
+    if(this.state.store) {
+      return (
+        <Provider store={this.state.store}>
+          <Routes />
+        </Provider>
+      )
+    }
+
+    return (
+      <div>
+				<h1> hello</h1>
+			</div>
+    );
+  }
+}
+
