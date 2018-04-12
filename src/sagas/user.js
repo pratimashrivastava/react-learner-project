@@ -1,7 +1,6 @@
 import { take, call, put, fork } from 'redux-saga/effects';
 import { UserActions } from '../actions';
 import { service } from '../services';
-import GLOBALS from '../components/globals'
 
 const IS_TRUE = true;
 

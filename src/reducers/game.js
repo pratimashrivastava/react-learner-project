@@ -1,7 +1,7 @@
-import { UserActions, GameActions } from '../actions';
+import { GameActions } from '../actions';
 import Immutable from 'immutable';
 
-const { Map, fromJS, List } = Immutable;
+const { Map, fromJS } = Immutable;
 
 const initialState = Map({
 	gamesArray: [],

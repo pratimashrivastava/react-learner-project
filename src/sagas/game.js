@@ -1,7 +1,6 @@
 import { take, call, put, fork } from 'redux-saga/effects';
 import { GameActions } from '../actions';
 import { service } from '../services';
-import GLOBALS from '../components/globals'
 
 const IS_TRUE = true;
 
@@ -15,7 +14,17 @@ function* watchGetGames() {
 	}
 }
 
+function* watchGetDetails() {
+	// while (IS_TRUE) {
+	// 	let action = yield take(GameActions.GET_DETAILS);
+	// 	let { json, response } = yield call(service.getDetails, action.participantId);
+	// 	if (response.ok && json) {
+	// 		yield put(GameActions.setDetails(json));
+	// 	}
+	// }
+}
 
 export default function* root() {
 	yield fork(watchGetGames);
+	yield fork(watchGetDetails);
 }
