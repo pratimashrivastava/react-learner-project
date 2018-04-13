@@ -30,7 +30,7 @@ class Dashboard extends React.Component {
 	goTODetails(participantId) {
 		this.props.history.push({
 			pathname: '/details',
-				state: { participantId: participantId }
+			state: { participantId: participantId }
 		})
 	}
 	render() {
@@ -45,7 +45,7 @@ class Dashboard extends React.Component {
 							<h5 className={styles.m0PH10}>{game.actor.firstName}</h5>
 						</div>
 						<div>
-							<Button onClick={() => this.goTODetails(game._id)} color="facebook">Play</Button>
+							<Button onClick={() => this.goTODetails(game.actor._id)} color="facebook">Play</Button>
 						</div>
 					</div>
 				</li>

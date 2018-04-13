@@ -6,6 +6,7 @@ const { Map, fromJS } = Immutable;
 const initialState = Map({
 	gamesArray: [],
 	isLoading: false,
+	gameDetails: null,
 });
 
 export default function (state = initialState, action) {
@@ -14,6 +15,10 @@ export default function (state = initialState, action) {
 
 		case GameActions.SET_GAMES_ARRAY:
 			return state.set('gamesArray', fromJS(action.gamesArray))
+				.set('isLoading', false);
+
+		case GameActions.SET_GAME_DETAILS:
+			return state.set('gameDetails', fromJS(action.gameDetails))
 				.set('isLoading', false);
 
 		default: return state;

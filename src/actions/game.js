@@ -1,7 +1,7 @@
 export const GET_GAMES = 'GET_GAMES';
 export const SET_GAMES_ARRAY = 'SET_GAMES_ARRAY';
-export const GET_DETAILS = 'GET_DETAILS';
-export const SET_DETAILS ='SET_DETAILS';
+export const GET_GAME_DETAILS = 'GET_GAME_DETAILS';
+export const SET_GAME_DETAILS ='SET_GAME_DETAILS';
 
 export const getGames = (token) => {
 	return {
@@ -19,14 +19,14 @@ export const setGamesArray = (gamesArray) => {
 
 export const getDetails = (participantId) => {
 	return {
-		type: GET_DETAILS,
+		type: GET_GAME_DETAILS,
 		participantId,
 	};
 }
 
 export const setDetails = (gameDetails) => {
 	return {
-		type: SET_DETAILS,
+		type: SET_GAME_DETAILS,
 		gameDetails,
 	};
 }

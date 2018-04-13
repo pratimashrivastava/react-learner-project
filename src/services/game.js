@@ -6,8 +6,8 @@ export default {
 		return api('GET', endpoint);
 	},
 
-	getDetails(opts) {
-		let endpoint = 'quiz/' + opts.participantId + '?offset=0';
+	getDetails(participantId) {
+		let endpoint = 'quiz/' + participantId + '?offset=0&limit=5&ignoreUpdate=false';
 		return api('GET', endpoint);
 	}
 }

@@ -15,13 +15,13 @@ function* watchGetGames() {
 }
 
 function* watchGetDetails() {
-	// while (IS_TRUE) {
-	// 	let action = yield take(GameActions.GET_DETAILS);
-	// 	let { json, response } = yield call(service.getDetails, action.participantId);
-	// 	if (response.ok && json) {
-	// 		yield put(GameActions.setDetails(json));
-	// 	}
-	// }
+	while (IS_TRUE) {
+		let action = yield take(GameActions.GET_GAME_DETAILS);
+		let { json, response } = yield call(service.getDetails, action.participantId);
+		if (response.ok && json) {
+			yield put(GameActions.setDetails(json));
+		}
+	}
 }
 
 export default function* root() {
