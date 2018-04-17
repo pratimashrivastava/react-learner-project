@@ -1,5 +1,5 @@
 export function api(type = 'GET', endpoint, body = null, customUrl) {
-	let url = endpoint.indexOf('http') === -1 ? ('https://friendo-stage.herokuapp.com/api/' + endpoint) : endpoint;
+	let url = endpoint.indexOf('http') === -1 ? ('https://friendo-dev.herokuapp.com/api/' + endpoint) : endpoint;
 	url = customUrl || url;
 	let header = {
 		'Accept': 'application/json',

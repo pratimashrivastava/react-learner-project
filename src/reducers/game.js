@@ -7,6 +7,7 @@ const initialState = Map({
 	gamesArray: [],
 	isLoading: false,
 	gameDetails: null,
+	categories: [],
 });
 
 export default function (state = initialState, action) {
@@ -19,6 +20,10 @@ export default function (state = initialState, action) {
 
 		case GameActions.SET_GAME_DETAILS:
 			return state.set('gameDetails', fromJS(action.gameDetails))
+				.set('isLoading', false);
+
+		case GameActions.SET_TOPICS:
+			return state.set('categories', action.categories)
 				.set('isLoading', false);
 
 		default: return state;

@@ -4,14 +4,15 @@ import { connect } from 'react-redux';
 import { GameActions } from '../../actions';
 import { withRouter } from 'react-router-dom';
 import styles from '../common/styles.css';
-import _ from 'lodash';
+import { Button } from 'semantic-ui-react';
 
 class Details extends React.Component {
 
 	constructor(props) {
 		super(props);
 		this.state = {
-			gameDetails: {}
+			gameDetails: {},
+			selectedAnswer: null
 		}
 	}
 	componentWillMount() {
@@ -27,47 +28,73 @@ class Details extends React.Component {
 		}
 
 	}
-	renderAnswers() {
-		let gameDetails = this.state.gameDetails.quiz
-		let answers = _.get(gameDetails, gameDetails.quiz.question[0].answers);
-		if (answers) {
-			return (
-				<div class="ui radio checkbox">
-					<input type="radio" name="option1" checked="checked" />
-					<label>{answers[0].text}</label>
-					<input type="radio" name="option2" checked="checked" />
-					<label>{answers[1].text}</label>
-					<input type="radio" name="option3" checked="checked" />
-					<label>{answers[2].text}</label>
-					<input type="radio" name="option4" checked="checked" />
-					<label>{answers[3].text}</label>
-				</div>
-			)
-		}
+
+	goTONewQuestion() {
+		this.props.history.push({
+			pathname: '/category',
+			state: { participantId: this.props.location.state.participantId }
+		})
+	}
+	setSelectedAnswer(answer) {
+		this.setState({ selectedAnswer: answer });
 	}
 
 	render() {
 		let quiz = this.state.gameDetails.quiz
-
+		let answers = quiz && quiz[0].question.answers
 		return (
 			<div className={styles.detailsContainer}>
 				<div className="ui checkbox">
 					<input type="checkbox" tabIndex="0" />
-					<label>Attach a comment to your answer?</label>
+					<label><h5 className={styles.whiteText}>Attach a comment to your answer?</h5></label>
 				</div>
 				<div>
-					{quiz && <h1>{quiz[0].question.question}</h1>}
-					{quiz && <div class="ui radio checkbox">
-						<input type="radio" name="option1" checked="checked" />
-						<label>{quiz[0].question.answers[0].text}</label>
-						<input type="radio" name="option2" checked="checked" />
-						<label>{quiz[0].question.answers[1].text}</label>
-						<input type="radio" name="option3" checked="checked" />
-						<label>{ quiz[0].question.answers.length > 2 && quiz[0].question.answers[2].text}</label>
-						<input type="radio" name="option4" checked="checked" />
-						<label>{quiz[0].question.answers.length > 3 && quiz[0].question.answers[3].text}</label>
-					</div>}
+					{answers && <div class="ui form">
+						<div class="grouped fields">
+							<label>
+								{
+									quiz && <h5 className={styles.whiteText}>{quiz[0].question.question}</h5>
+								}
+							</label>
+							<div class="field">
+								<div class="ui radio checkbox">
+									<input type="radio" name="options" onChange={() => this.setSelectedAnswer(answers[0])} />
+									<label>
+										<h5 className={styles.whiteText}>{answers[0].text}</h5>
+									</label>
+								</div>
+							</div>
+							<div class="field">
+								<div class="ui radio checkbox">
+									<input type="radio" name="options" onChange={() => this.setSelectedAnswer(answers[1])} />
+									<label>
+										<h5 className={styles.whiteText}>{answers[1].text}</h5>
+									</label>
+								</div>
+							</div>
+							{answers.length > 2 && <div class="field">
+								<div class="ui radio checkbox">
+									<input type="radio" name="options" onChange={() => this.setSelectedAnswer(answers[2])} />
+									<label>
+										<h5 className={styles.whiteText}>{answers[2].text}</h5>
+									</label>
+								</div>
+							</div>}
+							{answers.length > 3 && <div class="field">
+								<div class="ui radio checkbox">
+									<input type="radio" name="options" onChange={() => this.setSelectedAnswer(answers[3])} />
+									<label>
+										<h5 className={styles.whiteText}>{answers[3].text}</h5>
+									</label>
+								</div>
+							</div>}
+						</div>
+					</div>
+					}
 				</div>
+				<Button className='background-color: whitesmoke' onClick={() => this.goTONewQuestion()} color="facebook">New Question</Button>
+				<h5>{this.state.selectedAnswer && this.state.selectedAnswer.text}</h5>
+				<Button className='background-color: whitesmoke' onClick={() => this.goToAskBack()} >Ask Back</Button>
 			</div>
 		);
 	}

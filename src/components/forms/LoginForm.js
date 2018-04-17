@@ -29,8 +29,8 @@ class LoginForm extends React.Component {
 
 	validate = data => {
 		const errors = {};
-		if (!Validator.isEmail(data.email)) errors.email = 'invalid email';
-		if (!data.password) errors.password = 'can not be blank';
+		// if (!Validator.isEmail(data.email)) errors.email = 'invalid email';
+		// if (!data.password) errors.password = 'can not be blank';
 		return errors;
 	};
 

@@ -2,6 +2,8 @@ export const GET_GAMES = 'GET_GAMES';
 export const SET_GAMES_ARRAY = 'SET_GAMES_ARRAY';
 export const GET_GAME_DETAILS = 'GET_GAME_DETAILS';
 export const SET_GAME_DETAILS ='SET_GAME_DETAILS';
+export const GET_TOPICS = 'GET_TOPICS';
+export const SET_TOPICS = 'SET_TOPICS';
 
 export const getGames = (token) => {
 	return {
@@ -29,4 +31,18 @@ export const setDetails = (gameDetails) => {
 		type: SET_GAME_DETAILS,
 		gameDetails,
 	};
+}
+
+export const getTopics = (participantId) => {
+	return {
+		type: GET_TOPICS,
+		participantId
+	}
+}
+
+export const setTopics = (categories) => {
+	return {
+		type: SET_TOPICS,
+		categories
+	}
 }

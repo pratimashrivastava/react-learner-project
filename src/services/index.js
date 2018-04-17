@@ -5,4 +5,5 @@ export const service = {
   userLogin: user.userLogin,
   getGames: game.getGames,
   getDetails: game.getDetails,
+  getTopics: game.getTopics,
 }

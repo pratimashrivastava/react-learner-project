@@ -24,6 +24,7 @@
   :local(.m0PH10) {
     margin: 0px;
     padding: 0px 10px;
+    color: #fff;
   }
   :local(.liStyleNone) {
     list-style-type: none;
@@ -42,4 +43,57 @@
   }
   :local(.detailsContainer) {
     margin: 40px;
+    background-image: url("../../images/facesBackground.png");
+    height: 700px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  :local(.detailButton) {
+    background-color: whitesmoke;
+    height: 30px;
+    width: 300px;
+  }
+  :local(.whiteText) {
+    color: whitesmoke;
+  }
+  :local(.categoryBtn) {
+    height: 100px;
+    width: 70px;
+  }
+  :local(.flexDirRow) {
+    display: flex;
+    flex-direction: row;
+  }
+
+  :local(.container) {
+    margin: 40px;
+    background-image: url("../../images/facesBackground.png");
+    height: 2100px;
+    width: 700px;
+  }
+  :local(.categoryList) {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+  }
+  :local(.category) {
+    height: 100px;
+    width: 200px;
+    border-width: 2px;
+    border-color: #fff;
+    border-style: solid;
+    margin: 8px;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+  }
+  :local(.categoryIcon) {
+    height: 50px;
+    width: 50px;
   }

@@ -9,5 +9,10 @@ export default {
 	getDetails(participantId) {
 		let endpoint = 'quiz/' + participantId + '?offset=0&limit=5&ignoreUpdate=false';
 		return api('GET', endpoint);
+	},
+
+	getTopics(userparam) {
+		let endpoint = 'topics?'  + 'participantId=' + userparam + '&filterLocked=true&customQuestions=false';
+    return api('GET', endpoint);
 	}
 }

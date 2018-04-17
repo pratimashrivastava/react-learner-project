@@ -24,7 +24,18 @@ function* watchGetDetails() {
 	}
 }
 
+function* watchGetTopics() {
+	while (IS_TRUE) {
+		let action = yield take(GameActions.GET_TOPICS);
+		let { json, response } = yield call(service.getTopics, action.participantId);
+		if (response.ok && json) {
+			yield put(GameActions.setTopics(json.topics));
+		}
+	}
+}
+
 export default function* root() {
 	yield fork(watchGetGames);
 	yield fork(watchGetDetails);
+	yield fork(watchGetTopics);
 }
