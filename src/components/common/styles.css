@@ -97,3 +97,10 @@
     height: 50px;
     width: 50px;
   }
+  :local(.dashboardContainer) {
+    margin: 40px;
+    background-image: url("../../images/facesBackground.png");
+    height: 2100px;
+    width: 700px;
+    list-style-type: none;
+  }

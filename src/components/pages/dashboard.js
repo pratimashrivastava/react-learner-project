@@ -52,8 +52,8 @@ class Dashboard extends React.Component {
 			)
 		});
 		return (
-			<div className={styles.container}>
-				<ul className={styles.liStyleNone}>{listItems}</ul>
+			<div>
+				<ul className={styles.dashboardContainer}>{listItems}</ul>
 			</div>
 		);
 	}
