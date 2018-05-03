@@ -42,12 +42,6 @@ export default class FriendO extends React.Component {
         </Provider>
       )
     }
-
-    return (
-      <div>
-				<h1> hello</h1>
-			</div>
-    );
   }
 }
 

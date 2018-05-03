@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { GameActions } from '../../actions';
 import { withRouter } from 'react-router-dom';
-import styles from '../common/styles.css';
+import '../../App.css';
 
 class Category extends React.Component {
 
@@ -41,26 +41,26 @@ class Category extends React.Component {
     }
     const listItems = categories2dArray.map((categoriesInEachRow) => {
       return (
-        <li className={styles.categoryList}>
-          <div className={styles.categoryList}>
-            <div className={styles.category} onClick={() => this.goToNewQuestion(categoriesInEachRow[0])}>
-              {categoriesInEachRow[0].emoji && <h1 className={styles.categoryIcon}>{categoriesInEachRow[0].emoji} </h1>}
-              <h5 className={styles.m0PH10}>{categoriesInEachRow[0].topic}</h5>
+        <li className="categoryList">
+          <div className="categoryList">
+            <div className="category" onClick={() => this.goToNewQuestion(categoriesInEachRow[0])}>
+              {categoriesInEachRow[0].emoji && <h1 className="categoryIcon">{categoriesInEachRow[0].emoji} </h1>}
+              <h5 className="m0PH10">{categoriesInEachRow[0].topic}</h5>
             </div>
-            <div className={styles.category} onClick={() => this.goToNewQuestion(categoriesInEachRow[1])}>
-              {categoriesInEachRow[1].emoji && <h1 className={styles.categoryIcon}>{categoriesInEachRow[1].emoji} </h1>}
-              <h5 className={styles.m0PH10}>{categoriesInEachRow[1].topic}</h5>
+            <div className="category" onClick={() => this.goToNewQuestion(categoriesInEachRow[1])}>
+              {categoriesInEachRow[1].emoji && <h1 className="categoryIcon">{categoriesInEachRow[1].emoji} </h1>}
+              <h5 className="m0PH10">{categoriesInEachRow[1].topic}</h5>
             </div>
-            <div className={styles.category} onClick={() => this.goToNewQuestion(categoriesInEachRow[2])}>
-              {categoriesInEachRow[2].emoji && <h1 className={styles.categoryIcon}>{categoriesInEachRow[2].emoji}</h1>}
-              <h5 className={styles.m0PH10}>{categoriesInEachRow[2].topic}</h5>
+            <div className="category" onClick={() => this.goToNewQuestion(categoriesInEachRow[2])}>
+              {categoriesInEachRow[2].emoji && <h1 className="categoryIcon">{categoriesInEachRow[2].emoji}</h1>}
+              <h5 className="m0PH10">{categoriesInEachRow[2].topic}</h5>
             </div>
           </div>
         </li>
       )
     });
     return (
-      <div className={styles.container}>
+      <div className="container">
         <ul>{listItems}</ul>
       </div>
     );

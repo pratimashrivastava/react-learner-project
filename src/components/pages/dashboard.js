@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { UserActions, GameActions } from '../../actions';
 import { Button } from 'semantic-ui-react';
-import styles from '../common/styles.css';
+import '../../App.css';
 import { withRouter } from 'react-router-dom';
 
 class Dashboard extends React.Component {
@@ -38,11 +38,11 @@ class Dashboard extends React.Component {
 		const listItems = games.map((game) => {
 			return (
 
-				<li className={styles.dasboardLists} key={game._id}>
-					<div className={styles.oneOnOneRowContainer}>
-						<div className={styles.flexRow}>
-							<img className={styles.avatar} src={game.actor.avatarUrl} alt="" />
-							<h5 className={styles.m0PH10}>{game.actor.firstName}</h5>
+				<li className="dasboardLists" key={game._id}>
+					<div className="oneOnOneRowContainer">
+						<div className="flexRow">
+							<img className="avatar" src={game.actor.avatarUrl} alt="" />
+							<h5 className="m0PH10">{game.actor.firstName}</h5>
 						</div>
 						<div>
 							<Button onClick={() => this.goTODetails(game.actor._id)} color="facebook">Play</Button>
@@ -52,9 +52,7 @@ class Dashboard extends React.Component {
 			)
 		});
 		return (
-			<div>
-				<ul className={styles.dashboardContainer}>{listItems}</ul>
-			</div>
+				<ul className="dashboardContainer">{listItems}</ul>
 		);
 	}
 }

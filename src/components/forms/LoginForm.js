@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Button, Form } from 'semantic-ui-react';
 import Validator from 'validator';
 import InlineError from '../messages/InlineError';
+import styles from '../../App.css';
 
 class LoginForm extends React.Component {
 	state = {
@@ -29,39 +30,45 @@ class LoginForm extends React.Component {
 
 	validate = data => {
 		const errors = {};
-		// if (!Validator.isEmail(data.email)) errors.email = 'invalid email';
-		// if (!data.password) errors.password = 'can not be blank';
+		if (!Validator.isEmail(data.email)) errors.email = 'invalid email';
+		if (!data.password) errors.password = 'can not be blank';
 		return errors;
 	};
 
 	render() {
 		const { data, errors } = this.state;
 		return (
-			<Form onSubmit={this.onSubmit}>
-				<Form.Field>
-					<label htmlFor="email">Email</label>
-					<input
-						type="email"
-						id="email"
-						name="email"
-						placeholder="example@example.com"
-						value={data.email}
-						onChange={this.onChange} />
-					{errors.email && <InlineError text={errors.email} />}
-				</Form.Field>
-				<Form.Field>
-					<label htmlFor="password">Password</label>
-					<input
-						type="password"
-						id="password"
-						name="password"
-						value={data.password}
-						placeholder="make it secure"
-						onChange={this.onChange} />
-					{errors.password && <InlineError text={errors.password} />}
-				</Form.Field>
-				<Button primary>Login</Button>
-			</Form>
+			<div className="loginFormCntr">
+				<Form onSubmit={this.onSubmit}>
+					<Form.Field>
+						<div className="flexColumn">
+							<label htmlFor="email" className="whiteText">Username</label>
+							<input
+								type="email"
+								id="email"
+								name="email"
+								placeholder="example@example.com"
+								value={data.email}
+								onChange={this.onChange} />
+							{errors.email && <InlineError text={errors.email} />}
+						</div>
+					</Form.Field>
+					<Form.Field>
+						<div className="flexColumn">
+							<label htmlFor="password" className="whiteText">Password</label>
+							<input
+								type="password"
+								id="password"
+								name="password"
+								value={data.password}
+								placeholder="make it secure"
+								onChange={this.onChange} />
+							{errors.password && <InlineError text={errors.password} />}
+						</div>
+					</Form.Field>
+					<Button primary className="loginBtn">Login</Button>
+				</Form>
+			</div>
 		);
 	}
 }

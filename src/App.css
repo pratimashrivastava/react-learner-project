@@ -26,3 +26,121 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.content {
+  font-size: 15px;
+  text-align: center;
+}
+.oneOnOneRowContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.flexRow {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+.avatar {
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+}
+.m0PH10 {
+  margin: 0px;
+  padding: 0px 10px;
+  color: #fff;
+}
+.liStyleNone {
+  list-style-type: none;
+  padding: 0px 20px;
+  background-color: #fff;
+}
+.dasboardLists {
+  padding: 5px 10px;
+  border-radius: 6px;
+  border-bottom: 1px solid #fff;
+  background: linear-gradient(to left, #f2f2f2, #898989);
+}
+.playButton {
+  align-self: right;
+  background-color: green;
+}
+.detailsContainer {
+  margin: 40px;
+  background-image: url("./images/facesBackground.png");
+  height: 700px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.detailButton {
+  background-color: whitesmoke;
+  height: 30px;
+  width: 300px;
+}
+.whiteText {
+  color: whitesmoke;
+}
+.categoryBtn {
+  height: 100px;
+  width: 70px;
+}
+.flexDirRow {
+  display: flex;
+  flex-direction: row;
+}
+
+.container {
+  background-image: url("./images/facesBackground.png");
+  height: 100%;
+  width: 100%;
+}
+.categoryList {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+}
+.category {
+  height: 100px;
+  width: 200px;
+  border-width: 2px;
+  border-color: #fff;
+  border-style: solid;
+  margin: 8px;
+  border-radius: 20px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+.categoryIcon {
+  height: 50px;
+  width: 50px;
+}
+.dashboardContainer {
+  /* margin: 40px; */
+  background-image: url("./images/facesBackground.png");
+  height: 100%;
+  width: 100%;
+  list-style-type: none;
+}
+.inputCntr {
+  width: 200px;
+}
+.loginFormCntr {
+  height: 700px;
+  width: 700px;
+  padding: 5%;
+}
+.loginBtn {
+  width: 590px
+}

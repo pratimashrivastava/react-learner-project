@@ -3,8 +3,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { GameActions } from '../../actions';
 import { withRouter } from 'react-router-dom';
-import styles from '../common/styles.css';
 import { Button } from 'semantic-ui-react';
+import '../../App.css';
 
 class Details extends React.Component {
 
@@ -43,24 +43,26 @@ class Details extends React.Component {
 		let quiz = this.state.gameDetails.quiz
 		let answers = quiz && quiz[0].question.answers
 		return (
-			<div className={styles.detailsContainer}>
+			<div className="detailsContainer">
+			<div className="detailCheckBoxCntr">
 				<div className="ui checkbox">
 					<input type="checkbox" tabIndex="0" />
-					<label><h5 className={styles.whiteText}>Attach a comment to your answer?</h5></label>
+					<label><h5 className="whiteText">Attach a comment to your answer?</h5></label>
+				</div>
 				</div>
 				<div>
 					{answers && <div class="ui form">
 						<div class="grouped fields">
 							<label>
 								{
-									quiz && <h5 className={styles.whiteText}>{quiz[0].question.question}</h5>
+									quiz && <h5 className="whiteText">{quiz[0].question.question}</h5>
 								}
 							</label>
 							<div class="field">
 								<div class="ui radio checkbox">
 									<input type="radio" name="options" onChange={() => this.setSelectedAnswer(answers[0])} />
 									<label>
-										<h5 className={styles.whiteText}>{answers[0].text}</h5>
+										<h5 className="whiteText">{answers[0].text}</h5>
 									</label>
 								</div>
 							</div>
@@ -68,7 +70,7 @@ class Details extends React.Component {
 								<div class="ui radio checkbox">
 									<input type="radio" name="options" onChange={() => this.setSelectedAnswer(answers[1])} />
 									<label>
-										<h5 className={styles.whiteText}>{answers[1].text}</h5>
+										<h5 className="whiteText">{answers[1].text}</h5>
 									</label>
 								</div>
 							</div>
@@ -76,7 +78,7 @@ class Details extends React.Component {
 								<div class="ui radio checkbox">
 									<input type="radio" name="options" onChange={() => this.setSelectedAnswer(answers[2])} />
 									<label>
-										<h5 className={styles.whiteText}>{answers[2].text}</h5>
+										<h5 className="whiteText">{answers[2].text}</h5>
 									</label>
 								</div>
 							</div>}
@@ -84,7 +86,7 @@ class Details extends React.Component {
 								<div class="ui radio checkbox">
 									<input type="radio" name="options" onChange={() => this.setSelectedAnswer(answers[3])} />
 									<label>
-										<h5 className={styles.whiteText}>{answers[3].text}</h5>
+										<h5 className="whiteText">{answers[3].text}</h5>
 									</label>
 								</div>
 							</div>}
