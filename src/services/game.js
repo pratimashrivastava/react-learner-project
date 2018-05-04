@@ -16,9 +16,9 @@ export default {
     return api('GET', endpoint);
 	},
 
-	getQuestions(topic, participantId) {
-		let topicParam = opts.topic == 'Random' || opts.topic == 'Trending' ? '' : '&topic=' + encodeURIComponent(opts.topic);
-		let url = GLOBALS.API_BASE + 'questions?' + userparam + topicParam;
+	getQuestions(data) {
+		let topicParam = data.topic == 'Random' || data.topic == 'Trending' ? '' : '&topic=' + encodeURIComponent(data.topic);
+		let url = GLOBALS.API_BASE + 'questions?' + data.participantId + topicParam;
 	}
 	
 }
